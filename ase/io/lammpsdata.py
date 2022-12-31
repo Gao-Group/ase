@@ -397,6 +397,8 @@ def read_lammps_data(fileobj, Z_of_type=None, style="full",
                 dihedrals[i] = "_"
         at.arrays["dihedrals"] = np.array(dihedrals)
 
+    if comment=='':
+        comment = "None"
     at.info["comment"] = comment
 
     return at
