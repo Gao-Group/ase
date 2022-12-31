@@ -848,7 +848,7 @@ def output_column_format(atoms, columns, arrays,
 def write_xyz(fileobj, images, comment='', columns=None,
               write_info=True,
               write_results=True, plain=False, vec_cell=False,
-              append=False):
+              append=False,stress_units=1):
     """
     Write output in extended XYZ format
 
@@ -917,7 +917,7 @@ def write_xyz(fileobj, images, comment='', columns=None,
                         if key == 'stress':
                             xx, yy, zz, yz, xz, xy = value
                             value = np.array(
-                                [(xx, xy, xz), (xy, yy, yz), (xz, yz, zz)])
+                                [(xx, xy, xz), (xy, yy, yz), (xz, yz, zz)])/stress_units
                         per_frame_results[key] = value
 
         # Move symbols and positions to first two properties
