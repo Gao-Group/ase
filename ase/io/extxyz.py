@@ -373,6 +373,9 @@ def _read_xyz_frame(lines, natoms, properties_parser=key_val_str_to_dict,
                     nvec=0):
     # comment line
     line = next(lines).strip()
+    for i in range(len(line)):
+        if 'Energy' in line:
+            line = line.replace('Energy','energy')
     if nvec > 0:
         info = {'comment': line}
     else:
